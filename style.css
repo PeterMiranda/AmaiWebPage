@@ -1,0 +1,150 @@
+body {
+  margin: 0;
+  font-family: 'Helvetica Neue', sans-serif;
+  color: #333;
+}
+
+header {
+  background: #f5ede2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+header .logo {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+header nav a {
+  margin-left: 1rem;
+  text-decoration: none;
+  color: #333;
+}
+
+header nav a:last-child {
+  background-color: #637225;
+  color: white;
+  padding: 0.3rem 1rem;
+  border-radius: 20px;
+}
+
+.hero {
+  background: url("images/hero.jpg") no-repeat center;
+  background-size: cover;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.hero h1 {
+  color: #3c4a12;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero button {
+  background-color: #637225;
+  color: white;
+  border: none;
+  padding: 0.7rem 1.5rem;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 4rem 2rem;
+  gap: 2rem;
+}
+
+.text-block {
+  flex: 1 1 55%;
+}
+
+.qr {
+  flex: 1 1 30%;
+  text-align: center;
+}
+
+.qr img {
+  max-width: 150px;
+}
+
+.benefits, .ingredients {
+  margin-bottom: 2rem;
+}
+
+ul {
+  padding-left: 1.5rem;
+}
+
+.sections {
+  display: flex;
+  justify-content: space-around;
+  background: #c5d0db;
+  padding: 3rem 2rem;
+  flex-wrap: wrap;
+}
+
+.section {
+  width: 250px;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.section img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.section p {
+  font-weight: bold;
+  color: #7a4f36;
+}
+
+footer {
+  background: #2c2c2c;
+  color: white;
+  padding: 2rem;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.footer-section {
+  margin-bottom: 1rem;
+}
+
+.social-icons {
+  margin-top: 1rem;
+}
+
+.social-icons i {
+  margin-right: 1rem;
+}
+
+@media (max-width: 768px) {
+  .content, .footer-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .text-block, .qr {
+    width: 100%;
+  }
+
+  .section {
+    width: 80%;
+  }
+}
