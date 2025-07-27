@@ -4,7 +4,6 @@
 <head>
   <meta charset="UTF-8">
   <title>Encuesta de Diagnóstico Facial</title>
-  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;700&display=swap" rel="stylesheet">
   <style>
     * {
       box-sizing: border-box;
@@ -29,11 +28,11 @@
 
     header {
       width: 100%;
+      background: #f5ede2;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1rem 2rem;
-      background: transparent;
+      padding: 1rem 1rem;
     }
 
     .logo {
@@ -45,25 +44,28 @@
       gap: 0.5rem;
     }
 
-    nav a {
-      margin-left: 1rem;
-      font-weight: 500;
-      color: #5c6f3c;
-    }
-
     header nav a {
       margin-left: 1rem;
-      font-weight: 500;
       text-decoration: none;
       color: #333;
     }
 
-    header {
-      background: #f5ede2;
+    .logo {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 2rem;
+      flex-direction: column;
+      align-items: start;
+    }
+
+    .logo strong {
+      font-size: 1.8rem;
+      color: #2e6831;
+      font-weight: 700;
+    }
+
+    .logo small {
+      font-size: 0.7rem;
+      color: #666;
+      letter-spacing: 1px;
     }
 
     header nav a:last-child {
@@ -242,29 +244,149 @@
       margin-bottom: 2rem;
     }
 
-    .logo {
-      display: flex;
-      flex-direction: column;
-      align-items: start;
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem;
+      }
+
+      header nav {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-top: 1rem;
+      }
+
+      .container {
+        padding: 10px;
+      }
+
+      .slide.active {
+        flex-direction: column;
+        padding: 20px;
+        gap: 20px;
+      }
+
+      .welcome-left,
+      .welcome-right {
+        width: 100%;
+        text-align: center;
+      }
+
+      .welcome-left img {
+        width: 100%;
+        height: auto;
+      }
+
+      .card {
+        padding: 20px;
+      }
+
+      .btn-group {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .btn-group .btn {
+        width: 100%;
+        margin: 0;
+      }
+
+      .progress-bar {
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .circle {
+        width: 16px;
+        height: 16px;
+      }
+
+      .logo {
+        flex-direction: row !important;
+        align-items: center !important;
+        gap: 0.5rem;
+      }
+
+      .logo img {
+        height: 40px;
+      }
+
+      .card-title {
+        font-size: 1.5em;
+      }
+
+      input[type="text"],
+      input[type="number"],
+      select,
+      textarea {
+        font-size: 0.95em;
+      }
     }
 
-    .logo strong {
-      font-size: 1.8rem;
-      color: #2e6831;
-      font-weight: 700;
-    }
+    @media (max-width: 480px) {
+  header {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 1rem;
+    width: 100%;
+    overflow-x: hidden;
+  }
 
-    .logo small {
-      font-size: 0.9rem;
-      color: #666;
-      letter-spacing: 1px;
-    }
+  .logo {
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 0.5rem;
+    margin-right: 9rem;
+    min-width: 0;
+  }
+
+  .logo img {
+    height: 36px;
+    width: auto;
+  }
+
+  .logo strong {
+    font-size: 1.8rem;
+  }
+
+  .logo small {
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+  }
+
+  header nav {
+    display: flex;
+    gap: 6px;
+    flex-shrink: 1;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+  }
+
+  header nav a {
+    font-size: 1rem;
+    margin-left: 1rem;
+    margin-right: -0.7rem;
+    padding: 4px 10px;
+    border-radius: 12px;
+  }
+
+  header nav a:last-child {
+    padding: 0.3rem 1rem;
+  }
+}
+
   </style>
 </head>
 
 <body>
   <header>
-    <div class="logo" style="flex-direction: row; align-items: center; gap: 1rem;">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <div class="logo" style="flex-direction: row; align-items: center; gap: rem;">
       <img src="images/amailogo.png" alt="Logo AMAI" style="height: 48px; width: auto;">
       <div style="display: flex; flex-direction: column;">
         <strong>AMAI</strong>

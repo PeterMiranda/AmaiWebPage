@@ -9,16 +9,16 @@
 </head>
 <body>
   <header>
-    <div class="logo" style="flex-direction: row; align-items: center; gap: 1rem;">
-    <img src="images/amailogo.png" alt="Logo AMAI" style="height: 48px; width: auto;">
-    <div style="display: flex; flex-direction: column;">
-      <strong>AMAI</strong>
-      <small>SABE CUIDARTE</small>
+    <div class="logo" style="flex-direction: row; align-items: center; gap: rem;">
+      <img src="images/amailogo.png" alt="Logo AMAI" style="height: 48px; width: auto;">
+      <div style="display: flex; flex-direction: column;">
+        <strong>AMAI</strong>
+        <small>SABE CUIDARTE</small>
+      </div>
     </div>
-  </div>
     <nav>
       <a href="index.html">Inicio</a>
-      <a href="#">Contacto</a>
+      <a href="#contacto">Contacto</a>
     </nav>
   </header>
 
@@ -37,20 +37,22 @@
         <h3>Beneficios de valor</h3>
         <p>Nuestra crema de skincare es una solución accesible y efectiva, elaborada artesanalmente en el país. Su producción local permite mantener bajos costos, ofrecer precios competitivos y garantizar márgenes sostenibles, al tiempo que apoya la economía regional y reduce el impacto ambiental.</p>
       </div>
-      <div class="ingredients">
-        <h3>Ingredientes Naturales</h3>
-        <p>Nuestra fórmula 100% natural hidrata, regenera y calma la piel, sin químicos agresivos, siendo ideal para pieles sensibles y consumidores conscientes. Además, responde a la creciente demanda de cosmética limpia y sostenible.</p>
-        <ul>
-          <li>500ml Agua destilada</li>
-          <li>12 ml Base líquida</li>
-          <li>10 ml Glicerina líquida</li>
-          <li>5 ml Propelincol</li>
-          <li>2 ml Vitamina E cosmética</li>
-          <li>0.5 g Benzuato/Sodio</li>
-          <li>0.5 g Ácido cÍtrico</li>
-          <li>3 ml Aloe Vera</li>
-        </ul>
-      </div>
+      <section id="ingredientes">
+        <div class="ingredients">
+          <h3>Ingredientes Naturales</h3>
+          <p>Nuestra fórmula 100% natural hidrata, regenera y calma la piel, sin químicos agresivos, siendo ideal para pieles sensibles y consumidores conscientes. Además, responde a la creciente demanda de cosmética limpia y sostenible.</p>
+          <ul>
+            <li>500ml Agua destilada</li>
+            <li>12 ml Base líquida</li>
+            <li>10 ml Glicerina líquida</li>
+            <li>5 ml Propelincol</li>
+            <li>2 ml Vitamina E cosmética</li>
+            <li>0.5 g Benzuato/Sodio</li>
+            <li>0.5 g Ácido cÍtrico</li>
+            <li>3 ml Aloe Vera</li>
+          </ul>
+        </div>
+      </section>
     </div>
     <div class="qr">
       <h3>Validaciones</h3>
@@ -60,38 +62,39 @@
 
   <section class="sections">
     <div class="section">
-      <img src="images/ingredientes.jpg" alt="Ingredientes" />
-      <p>INGREDIENTES</p>
+      <a href="#ingredientes">
+        <img src="images/ingredientes.jpg" alt="Ingredientes" />
+        <p>INGREDIENTES</p>
+      </a>
     </div>
     <div class="section">
-      <img src="images/diagnostico.jpg" alt="Diagnóstico" />
-      <p>DIAGNÓSTICO</p>
+      <a href="form.html">
+        <img src="images/diagnostico.jpg" alt="Diagnóstico" />
+        <p>DIAGNÓSTICO</p>
+      </a>
     </div>
     <div class="section">
-      <img src="images/rutinas.jpg" alt="Rutinas" />
-      <p>RUTINAS</p>
+      <a href="form.html">
+        <img src="images/rutinas.jpg" alt="Rutinas" />
+        <p>RUTINAS</p>
+      </a>
     </div>
   </section>
 
   <footer>
-    <div class="footer-container">
-      <div class="footer-section">
-        <h3>Oficina</h3>
-        <p>123 Anywhere St. Any City ST 12345</p>
-        <p>Tel: +593 97 887 2503</p>
-        <p>hello@reallygreatsite.com</p>
+    <section class="contacto">
+      <div class="footer-container">
+        <div class="footer-section">
+          <h3>Oficina</h3>
+          <p>Km. 30.5 Vía Perimetral ESPOL CAMPUS GUSTAVO GALINDO 7B A101,</p>
+          <p>Tel: +593 97 887 2503</p>
+          <p>amai@outlook.com</p>
+          <h3>Horario de atención</h3>
+          <p>Martes: 9am - 11am</p>
+          <p>Jueves: 9am - 11am</p>
+        </div>
       </div>
-      <div class="footer-section">
-        <h3>Horario de atención</h3>
-        <p>Monday - Friday: 9am - 6pm</p>
-        <p>Saturday: 9am - 12pm</p>
-      </div>
-    </div>
-    <div class="social-icons">
-      <span>Get social</span>
-      <i>📷</i>
-      <i>📘</i>
-    </div>
+    </section>
   </footer>
 </body>
 </html>
