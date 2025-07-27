@@ -380,6 +380,15 @@
   }
 }
 
+  .options input[type="checkbox"] {
+    display: none;
+  }
+
+  .options input[type="checkbox"]:checked + label {
+    background-color: #d6e6c4;
+    color:black;
+  }
+
   </style>
 </head>
 
@@ -598,21 +607,28 @@
         <label>¿Cuánta agua tomas al día?</label>
         <div class="options">
           <input type="radio" id="agua_menos_de_1L" name="agua" value="Menos de 1L" required>
-          <label for="habitos_no">Menos de 1L</label>
+          <label for="agua_menos_de_1L">Menos de 1L</label>
 
           <input type="radio" id="agua_1_2L" name="agua" value="1-2L">
           <label for="agua_1_2L">1-2L</label>
 
-          <input type="radio" id="habitos_mas_de_2L" name="agua" value="Más de 2L">
-          <label for="habitos_mas_de_2L">Más de 2L</label>
+          <input type="radio" id="agua_mas_de_2L" name="agua" value="Más de 2L">
+          <label for="agua_mas_de_2L">Más de 2L</label>
         </div>
 
         <label>¿Qué productos usas para limpiar tu rostro?</label>
         <div class="options">
-          <label><input type="checkbox" name="productos" value="Jabón común"> Jabón común</label>
-          <label><input type="checkbox" name="productos" value="Limpiador facial"> Limpiador facial</label>
-          <label><input type="checkbox" name="productos" value="Solo agua"> Solo agua</label>
-          <label><input type="checkbox" name="productos" value="Toallitas húmedas"> Toallitas húmedas</label>
+          <input type="checkbox" id="jabon" name="productos" value="Jabón común">
+          <label for="jabon">Jabón común</label>
+
+          <input type="checkbox" id="limpiador" name="productos" value="Limpiador facial">
+          <label for="limpiador">Limpiador facial</label>
+
+          <input type="checkbox" id="agua" name="productos" value="Solo agua">
+          <label for="agua">Solo agua</label>
+
+          <input type="checkbox" id="toallitas" name="productos" value="Toallitas húmedas">
+          <label for="toallitas">Toallitas húmedas</label>
         </div>
 
         <label>Comentarios adicionales:</label>
