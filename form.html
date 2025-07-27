@@ -1,133 +1,302 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <title>Encuesta de Diagnóstico Facial</title>
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;700&display=swap" rel="stylesheet">
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
     body {
-      font-family: Arial, sans-serif;
-      background: #f7f7f7;
       margin: 0;
       padding: 0;
+      font-family: 'Work Sans', sans-serif;
+      background: linear-gradient(to bottom right, #f9f5ef, #eee7db);
+      color: #2d2d2d;
+      height: 100vh;
     }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: start;
+      align-items: center;
+    }
+
+    header {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background: transparent;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #2e6831;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    nav a {
+      margin-left: 1rem;
+      font-weight: 500;
+      color: #5c6f3c;
+    }
+
+    header nav a {
+      margin-left: 1rem;
+      font-weight: 500;
+      text-decoration: none;
+      color: #333;
+    }
+
+    header {
+      background: #f5ede2;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+    }
+
+    header nav a:last-child {
+      background-color: #637225;
+      color: white;
+      padding: 0.3rem 1rem;
+      border-radius: 20px;
+    }
+
     .container {
-      max-width: 480px;
-      margin: 40px auto;
-      padding: 0;
+      width: 100%;
+      max-width: 960px;
+      padding: 20px;
     }
+
     .card {
-      background: #fff;
-      border-radius: 18px;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.10);
-      padding: 32px 28px 24px 28px;
-      margin-bottom: 24px;
-      animation: fadeIn 0.5s;
+      background: #fffaf4;
+      border-radius: 20px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      padding: 40px;
+      width: 100%;
     }
+
     .slide {
       display: none;
     }
-    .active {
+
+    .slide.active {
       display: block;
     }
+
     .card-title {
-      font-size: 1.5em;
-      font-weight: bold;
-      color: #2d3a4a;
-      margin-bottom: 18px;
-      text-align: center;
-      letter-spacing: 0.5px;
+      font-size: 1.8em;
+      font-weight: 700;
+      margin-bottom: 24px;
     }
+
     label {
+      font-size: 1em;
       display: block;
-      margin: 16px 0 6px;
-      color: #222;
-      font-weight: 500;
+      margin-top: 20px;
     }
+
+    .options {
+      margin-top: 10px;
+    }
+
     .options label {
       display: inline-block;
-      margin-right: 18px;
-      font-weight: 400;
-      margin-bottom: 8px;
+      background: #f0eee9;
+      border-radius: 24px;
+      padding: 10px 18px;
+      margin: 6px 12px 6px 0;
+      cursor: pointer;
+      border: 1px solid #d5d5d5;
+      font-weight: 500;
+      transition: all 0.2s;
     }
-    input[type="text"], input[type="number"], select, textarea {
+
+    .options input[type="radio"],
+    .options input[type="checkbox"] {
+      display: none;
+    }
+
+    .options input[type="radio"]:checked+label,
+    .options input[type="checkbox"]:checked+label {
+      background-color: #d6e6c4;
+      color: #2c2c2c;
+      font-weight: 600;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    select,
+    textarea {
       width: 100%;
-      padding: 8px;
-      border: 1px solid #d1d5db;
-      border-radius: 6px;
-      margin-bottom: 12px;
+      background: #fbf8f2;
+      border: 1px solid #ddd2c2;
+      border-radius: 12px;
+      padding: 14px;
       font-size: 1em;
-      background: #f9fafb;
+      margin-top: 8px;
     }
+
     textarea {
       resize: vertical;
     }
+
     .btn {
-      background: #4CAF50;
-      color: #fff;
+      background: #88aa4c;
+      color: white;
       border: none;
-      padding: 14px 0;
-      border-radius: 8px;
-      font-size: 1.1em;
+      padding: 14px 24px;
+      border-radius: 32px;
+      font-size: 1em;
       cursor: pointer;
-      width: 100%;
-      margin-top: 18px;
-      margin-bottom: 0;
       font-weight: bold;
-      letter-spacing: 0.5px;
       transition: background 0.2s;
     }
+
     .btn:hover {
-      background: #388e3c;
+      background: #6f8a3a;
     }
+
     .btn-group {
       display: flex;
-      gap: 12px;
-      margin-top: 18px;
+      justify-content: space-between;
+      margin-top: 28px;
     }
+
     .btn-group .btn {
       flex: 1;
-      margin: 0;
+      margin: 0 6px;
     }
+
+    .progress-bar {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin: 20px 0;
+    }
+
+    .circle {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      border: 2px solid #aab89d;
+      background: transparent;
+    }
+
+    .circle.active {
+      background: #2f3f25;
+      border-color: #2f3f25;
+    }
+
     .result {
-      margin-top: 10px;
-      padding: 18px;
-      background: #e8f5e9;
-      border-left: 5px solid #4CAF50;
-      border-radius: 8px;
+      background: #e6f4e3;
+      border-left: 4px solid #7fae65;
+      padding: 20px;
+      border-radius: 12px;
       font-size: 1.1em;
     }
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-    .center {
-      text-align: center;
-    }
-    .logo {
-      display: block;
-      margin: 0 auto 18px auto;
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      background: #e0f2f1;
+
+    .slide.active {
       display: flex;
       align-items: center;
-      justify-content: center;
-      font-size: 2em;
-      color: #4CAF50;
+      justify-content: space-between;
+      padding: 40px;
+      width: 100%;
+      max-width: 1200px;
+      gap: 40px;
+    }
+
+    .welcome-left {
+      flex: 1;
+    }
+
+    .welcome-left img {
+      max-width: 100%;
+      border-radius: 12px;
+    }
+
+    .welcome-right {
+      flex: 1;
+      text-align: center;
+    }
+
+    .welcome-right h1 {
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+
+    .welcome-right p {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+    }
+
+    .logo {
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+    }
+
+    .logo strong {
+      font-size: 1.8rem;
+      color: #2e6831;
+      font-weight: 700;
+    }
+
+    .logo small {
+      font-size: 0.9rem;
+      color: #666;
+      letter-spacing: 1px;
     }
   </style>
 </head>
+
 <body>
+  <header>
+    <div class="logo" style="flex-direction: row; align-items: center; gap: 1rem;">
+      <img src="images/amailogo.png" alt="Logo AMAI" style="height: 48px; width: auto;">
+      <div style="display: flex; flex-direction: column;">
+        <strong>AMAI</strong>
+        <small>SABE CUIDARTE</small>
+      </div>
+    </div>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="#">Contacto</a>
+    </nav>
+  </header>
+  <div class="container">
+    <div class="progress-bar">
+      <span class="circle active"></span>
+      <span class="circle"></span>
+      <span class="circle"></span>
+      <span class="circle"></span>
+      <span class="circle"></span>
+      <span class="circle"></span>
+    </div>
+  </div>
+
   <div class="container">
     <!-- Slide 0: Bienvenida -->
     <div class="slide active" id="slide0">
-      <div class="card">
-        <div class="logo">🧴</div>
-        <div class="card-title">Diagnóstico Facial</div>
-        <p class="center">Bienvenido/a a la encuesta de diagnóstico facial.<br>
-        Responde unas breves preguntas y obtén recomendaciones personalizadas para el cuidado de tu piel.</p>
-        <button class="btn" onclick="nextSlide()">Iniciar encuesta</button>
+      <div class="welcome-left">
+        <img src="images/2.png" alt="Rostro mujer bienvenida">
+      </div>
+      <div class="welcome-right">
+        <h1>Evaluación de la piel</h1>
+        <p>Ayúdanos a evaluar tu piel para el mejor cuidado y tratamiento.</p>
+        <button class="btn" onclick="nextSlide()">INICIAR</button>
       </div>
     </div>
     <!-- Slide 1: Datos personales -->
@@ -140,9 +309,12 @@
         <input type="number" id="edad" min="10" max="100" required>
         <label>Género:</label>
         <div class="options">
-          <label><input type="radio" name="genero" value="Femenino" required> Femenino</label>
-          <label><input type="radio" name="genero" value="Masculino"> Masculino</label>
-          <label><input type="radio" name="genero" value="Otro"> Otro</label>
+          <input type="radio" id="femenino" name="genero" value="Femenino" required>
+          <label for="femenino">Femenino</label>
+          <input type="radio" id="masculino" name="genero" value="Masculino">
+          <label for="masculino">Masculino</label>
+          <input type="radio" id="otro" name="genero" value="Otro">
+          <label for="otro">Otro</label>
         </div>
         <div class="btn-group">
           <button class="btn" onclick="prevSlide()">Anterior</button>
@@ -156,21 +328,36 @@
         <div class="card-title">Síntomas principales</div>
         <label>¿Con qué frecuencia tienes granos o espinillas?</label>
         <div class="options">
-          <label><input type="radio" name="granos" value="Nunca" required> Nunca</label>
-          <label><input type="radio" name="granos" value="A veces"> A veces</label>
-          <label><input type="radio" name="granos" value="Frecuentemente"> Frecuentemente</label>
+          <input type="radio" id="nunca" name="granos" value="Nunca" required>
+          <label for="nunca">Nunca</label>
+
+          <input type="radio" id="a_veces" name="granos" value="A veces">
+          <label for="a_veces">A veces</label>
+
+          <input type="radio" id="frecuente" name="granos" value="Frecuentemente">
+          <label for="frecuente">Frecuentemente</label>
         </div>
         <label>¿Tienes enrojecimiento frecuente en el rostro?</label>
         <div class="options">
-          <label><input type="radio" name="enrojecimiento" value="No" required> No</label>
-          <label><input type="radio" name="enrojecimiento" value="Leve"> Leve</label>
-          <label><input type="radio" name="enrojecimiento" value="Sí, frecuente"> Sí, frecuente</label>
+          <input type="radio" id="enrojecimiento_no" name="enrojecimiento" value="No" required>
+          <label for="enrojecimiento_no">No</label>
+
+          <input type="radio" id="enrojecimiento_leve" name="enrojecimiento" value="Leve">
+          <label for="enrojecimiento_leve">Leve</label>
+
+          <input type="radio" id="enrojecimiento_frecuente" name="enrojecimiento" value="Frecuente">
+          <label for="enrojecimiento_frecuente">Frecuente</label>
         </div>
         <label>¿Notas manchas oscuras o zonas hiperpigmentadas?</label>
         <div class="options">
-          <label><input type="radio" name="manchas" value="No" required> No</label>
-          <label><input type="radio" name="manchas" value="Pocas"> Pocas</label>
-          <label><input type="radio" name="manchas" value="Varias"> Varias</label>
+          <input type="radio" id="manchas_no" name="manchas" value="No" required>
+          <label for="manchas_no">No</label>
+
+          <input type="radio" id="manchas_pocas" name="manchas" value="Pocas">
+          <label for="manchas_pocas">Pocas</label>
+
+          <input type="radio" id="manchas_varias" name="manchas" value="Varias">
+          <label for="manchas_varias">Varias</label>
         </div>
         <div class="btn-group">
           <button class="btn" onclick="prevSlide()">Anterior</button>
@@ -184,22 +371,40 @@
         <div class="card-title">Condición de la piel</div>
         <label>¿Tienes líneas finas o arrugas visibles?</label>
         <div class="options">
-          <label><input type="radio" name="arrugas" value="No" required> No</label>
-          <label><input type="radio" name="arrugas" value="Algunas"> Algunas</label>
-          <label><input type="radio" name="arrugas" value="Bastantes"> Bastantes</label>
+          <input type="radio" id="arrugas_no" name="arrugas" value="No" required>
+          <label for="arrugas_no">No</label>
+
+          <input type="radio" id="arrugas_algunas" name="arrugas" value="Algunas">
+          <label for="arrugas_algunas">Algunas</label>
+
+          <input type="radio" id="arrugas_bastantes" name="arrugas" value="Bastantes">
+          <label for="arrugas_bastantes">Bastantes</label>
         </div>
+
         <label>¿Sientes la piel tirante o con descamación?</label>
         <div class="options">
-          <label><input type="radio" name="resequedad" value="No" required> No</label>
-          <label><input type="radio" name="resequedad" value="A veces"> A veces</label>
-          <label><input type="radio" name="resequedad" value="Frecuente"> Frecuente</label>
+          <input type="radio" id="resequedad_no" name="resequedad" value="No" required>
+          <label for="resequedad_no">No</label>
+
+          <input type="radio" id="resequedad_a_veces" name="resequedad" value="A veces">
+          <label for="resequedad_a_veces">A veces</label>
+
+          <input type="radio" id="resequedad_bastantes" name="resequedad" value="Bastantes">
+          <label for="resequedad_bastantes">Bastantes</label>
         </div>
+
         <label>¿Tu piel luce brillante o grasosa durante el día?</label>
         <div class="options">
-          <label><input type="radio" name="grasa" value="No" required> No</label>
-          <label><input type="radio" name="grasa" value="A veces"> A veces</label>
-          <label><input type="radio" name="grasa" value="Frecuente"> Frecuente</label>
+          <input type="radio" id="grasa_no" name="grasa" value="No" required>
+          <label for="grasa_no">No</label>
+
+          <input type="radio" id="grasa_a_veces" name="grasa" value="A veces">
+          <label for="grasa_a_veces">A veces</label>
+
+          <input type="radio" id="grasa_frecuente" name="grasa" value="Frecuente">
+          <label for="grasa_frecuente">Frecuente</label>
         </div>
+
         <div class="btn-group">
           <button class="btn" onclick="prevSlide()">Anterior</button>
           <button class="btn" onclick="nextSlide()">Siguiente</button>
@@ -212,22 +417,40 @@
         <div class="card-title">Hábitos y sensibilidad</div>
         <label>¿Ves poros grandes o dilatados en tu rostro?</label>
         <div class="options">
-          <label><input type="radio" name="poros" value="No" required> No</label>
-          <label><input type="radio" name="poros" value="Algunos"> Algunos</label>
-          <label><input type="radio" name="poros" value="Muchos"> Muchos</label>
+          <input type="radio" id="poros_no" name="poros" value="No" required>
+          <label for="poros_no">No</label>
+
+          <input type="radio" id="poros_algunos" name="poros" value="Algunos">
+          <label for="poros_algunos">Algunos</label>
+
+          <input type="radio" id="poros_muchos" name="poros" value="Muchos">
+          <label for="poros_muchos">Muchos</label>
         </div>
+
         <label>¿Sientes ardor, picazón o sensibilidad frecuente?</label>
         <div class="options">
-          <label><input type="radio" name="sensibilidad" value="No" required> No</label>
-          <label><input type="radio" name="sensibilidad" value="A veces"> A veces</label>
-          <label><input type="radio" name="sensibilidad" value="Frecuente"> Frecuente</label>
+          <input type="radio" id="sensibilidad_no" name="sensibilidad" value="No" required>
+          <label for="sensibilidad_no">No</label>
+
+          <input type="radio" id="sensibilidad_a_veces" name="sensibilidad" value="A veces">
+          <label for="sensibilidad_a_veces">A veces</label>
+
+          <input type="radio" id="sensibilidad_frecuente" name="sensibilidad" value="Frecuente">
+          <label for="sensibilidad_frecuente">Frecuente</label>
         </div>
+
         <label>¿Con qué frecuencia usas protector solar?</label>
         <div class="options">
-          <label><input type="radio" name="solar" value="Nunca" required> Nunca</label>
-          <label><input type="radio" name="solar" value="A veces"> A veces</label>
-          <label><input type="radio" name="solar" value="Diario"> Diario</label>
+          <input type="radio" id="solar_nunca" name="solar" value="Nunca" required>
+          <label for="solar_nunca">Nunca</label>
+
+          <input type="radio" id="solar_a_veces" name="solar" value="A veces">
+          <label for="solar_a_veces">A veces</label>
+
+          <input type="radio" id="solar_diario" name="solar" value="Diario">
+          <label for="solar_diario">Diario</label>
         </div>
+
         <div class="btn-group">
           <button class="btn" onclick="prevSlide()">Anterior</button>
           <button class="btn" onclick="nextSlide()">Siguiente</button>
@@ -240,16 +463,28 @@
         <div class="card-title">Hábitos y productos</div>
         <label>¿Fumas o consumes alcohol frecuentemente?</label>
         <div class="options">
-          <label><input type="radio" name="habitos" value="No" required> No</label>
-          <label><input type="radio" name="habitos" value="A veces"> A veces</label>
-          <label><input type="radio" name="habitos" value="Frecuente"> Frecuente</label>
+          <input type="radio" id="habitos_no" name="habitos" value="No" required>
+          <label for="habitos_no">No</label>
+
+          <input type="radio" id="habitos_a_veces" name="habitos" value="A veces">
+          <label for="habitos_a_veces">A veces</label>
+
+          <input type="radio" id="habitos_frecuente" name="habitos" value="Frecuente">
+          <label for="habitos_frecuente">Frecuente</label>
         </div>
+
         <label>¿Cuánta agua tomas al día?</label>
         <div class="options">
-          <label><input type="radio" name="agua" value="Menos de 1L" required> Menos de 1L</label>
-          <label><input type="radio" name="agua" value="1-2L"> 1-2L</label>
-          <label><input type="radio" name="agua" value="Más de 2L"> Más de 2L</label>
+          <input type="radio" id="agua_menos_de_1L" name="agua" value="Menos de 1L" required>
+          <label for="habitos_no">Menos de 1L</label>
+
+          <input type="radio" id="agua_1_2L" name="agua" value="1-2L">
+          <label for="agua_1_2L">1-2L</label>
+
+          <input type="radio" id="habitos_mas_de_2L" name="agua" value="Más de 2L">
+          <label for="habitos_mas_de_2L">Más de 2L</label>
         </div>
+
         <label>¿Qué productos usas para limpiar tu rostro?</label>
         <div class="options">
           <label><input type="checkbox" name="productos" value="Jabón común"> Jabón común</label>
@@ -257,6 +492,7 @@
           <label><input type="checkbox" name="productos" value="Solo agua"> Solo agua</label>
           <label><input type="checkbox" name="productos" value="Toallitas húmedas"> Toallitas húmedas</label>
         </div>
+
         <label>Comentarios adicionales:</label>
         <textarea id="comentarios" rows="2"></textarea>
         <div class="btn-group">
@@ -274,6 +510,8 @@
       </div>
     </div>
   </div>
+
+
   <script>
     let currentSlide = 0;
     const totalSlides = 6;
@@ -304,6 +542,45 @@
       document.getElementById('edad').value = '';
       document.getElementById('comentarios').value = '';
       showSlide(0);
+    }
+
+    function updateProgress() {
+      const circles = document.querySelectorAll('.progress-bar .circle');
+      circles.forEach((circle, index) => {
+        circle.classList.toggle('active', index <= currentSlide);
+      });
+    }
+
+    function validateSlide(n) {
+      const slide = document.getElementById('slide' + n);
+      const inputs = slide.querySelectorAll('input, select, textarea');
+      for (let input of inputs) {
+        // Validar campos de texto, número y select
+        if (input.hasAttribute('required')) {
+          if ((input.type === 'radio' || input.type === 'checkbox') && !isOptionChecked(slide, input.name)) {
+            return false;
+          }
+          if ((input.type === 'text' || input.type === 'number' || input.tagName === 'TEXTAREA') && input.value.trim() === '') {
+            return false;
+          }
+        }
+      }
+      return true;
+    }
+
+    function isOptionChecked(container, groupName) {
+      return container.querySelectorAll(`input[name="${groupName}"]:checked`).length > 0;
+    }
+
+    function nextSlide() {
+      if (validateSlide(currentSlide)) {
+        if (currentSlide < totalSlides) {
+          showSlide(currentSlide + 1);
+          updateProgress();
+        }
+      } else {
+        alert('Por favor completa todos los campos obligatorios antes de continuar.');
+      }
     }
 
     function submitForm() {
@@ -374,4 +651,5 @@
     }
   </script>
 </body>
+
 </html>
